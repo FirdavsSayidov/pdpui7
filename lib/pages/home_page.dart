@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.grey.shade300,
+    return Scaffold(backgroundColor: Colors.grey.shade200,
       appBar: AppBar(backgroundColor: Color(0xFF018197),primary: true,
         elevation: 0,
         title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(),
 
       body: SingleChildScrollView(
-        child: Column(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(height: 60,
             color: Color(0xFF018197),
@@ -76,22 +76,24 @@ class _HomePageState extends State<HomePage> {
               height: 150,
               width: double.infinity,
               color: Colors.white,
-              padding: EdgeInsets.only(left: 10),
               child: Row(
-                children: [
-                  Container(
-                    child: Text('We ship 45million products'),
-                    width: 120,
-                  ),
-                  SizedBox(width: 10,),
-                  Expanded(child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft:Radius.circular(70),bottomLeft: Radius.circular(70),
+                children: [  Expanded(child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(topRight:Radius.circular(70),bottomRight: Radius.circular(70),
                       ),
                       image: DecorationImage(image: AssetImage('assets/images/img_1.png'),fit: BoxFit.cover)
-                    ),
+                  ),
 
-                  ))
+                )),
+                  SizedBox(width: 10,),
+
+                  Container(
+                    child: Text('We ship 45million products'),
+                    width: 160,
+
+                  ),
+
+
                 ],
               ),
             ),
@@ -181,6 +183,34 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 7,),
+            Container(padding: EdgeInsets.only(left: 10,bottom: 10),
+              child: Text('Top products in Camera',style: TextStyle(fontSize: 17),),
+            ),
+            Container(padding: EdgeInsets.only(left: 10,right: 10),
+              height: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+
+                      Expanded(child: Container(width: double.infinity,
+                          child: Image(image: AssetImage('assets/images/img_8.png'),fit: BoxFit.cover,)),
+                      ),
+                      SizedBox(height: 5,),
+
+                  SizedBox(height: 5,),
+                  Row(
+                    children: [
+                      Expanded(child: Image(image: AssetImage('assets/images/img_6.png'),),
+                      ),
+                      SizedBox(width: 5,),
+                      Expanded(child: Image(image: AssetImage('assets/images/img_4.png'),),),
+
+
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20,)
           ],
         ),
       ),
